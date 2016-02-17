@@ -1,0 +1,9 @@
+{
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+    "open_files_in_new_window": false,
+    "theme": "Spacegray.sublime-theme",
+    "color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme"
+}

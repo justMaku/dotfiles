@@ -2,14 +2,43 @@
 
 # Based on: ~/.osx — https://mths.be/osx
 
+
+
 # Ask for the administrator password upfront
 sudo -v
 
-# Install Dependencies
-./Dependencies.sh
-
 # Keep-alive: update existing `sudo` time stamp until `.osx` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+#=====================
+# Install Dependencies
+#=====================
+
+./Dependencies.sh
+
+#==========
+# Git 
+#==========
+git config --global user.name "Michał Kałużny"
+git config --global user.email you@example.com
+git config --global core.editor "nano" # Don't judge me please.
+
+#=============
+# Sublime Text                                                                #
+#=============
+
+# Install Package Control
+curl -o "~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/" https://sublime.wbond.net/Package%20Control.sublime-package
+
+# Copy 
+cp dependencies/sublime-packages "~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings" 2> /dev/null
+
+# Install Sublime Text settings
+cp -r blobs/sublime-settings "~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings" 2> /dev/null
+
+#====
+# OSX
+#====
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "

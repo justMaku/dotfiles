@@ -14,7 +14,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # Install Dependencies
 #=====================
 
-./Dependencies.sh
+./dependencies.sh
 
 #==========
 # Git 
@@ -24,17 +24,21 @@ git config --global user.email you@example.com
 git config --global core.editor "nano" # Don't judge me please.
 
 #=============
-# Sublime Text                                                                #
+# Sublime Text
 #=============
 
 # Install Package Control
-curl -o "~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/" https://sublime.wbond.net/Package%20Control.sublime-package
+curl --url "https://sublime.wbond.net/Package%20Control.sublime-package" > "~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/Package Control.sublime-package"
 
 # Copy 
 cp dependencies/sublime-packages "~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings" 2> /dev/null
 
 # Install Sublime Text settings
 cp -r blobs/sublime-settings "~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings" 2> /dev/null
+
+#====
+# Dot Files
+#====
 
 #====
 # OSX
@@ -97,8 +101,9 @@ defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
-#=
+#=========
 # Terminal
+#=========
 
 # Use a modified version of the Solarized Dark theme by default in Terminal.app
 osascript <<EOD
@@ -112,7 +117,7 @@ tell application "Terminal"
 	(* Open the custom theme so that it gets added to the list
 	   of available terminal themes (note: this will open two
 	   additional terminal windows). *)
-	do shell script "open '$HOME/init/" & themeName & ".terminal'"
+	do shell script "open 'blobs/" & themeName & ".terminal'"
 	(* Wait a little bit to ensure that the custom theme is added. *)
 	delay 1
 	(* Set the custom theme as the default terminal theme. *)

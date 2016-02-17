@@ -2,8 +2,6 @@
 
 # Based on: ~/.osx — https://mths.be/osx
 
-
-
 # Ask for the administrator password upfront
 sudo -v
 
@@ -39,6 +37,11 @@ cp -r blobs/sublime-settings "~/Library/Application\ Support/Sublime\ Text*/Pack
 #====
 # Dot Files
 #====
+rm -rf ~/.zshrc
+rm -rf ~/.bash_profile
+rm -rf ~/.gemrc
+
+cp dotfiles/.* ~/
 
 #====
 # OSX

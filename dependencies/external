@@ -13,4 +13,5 @@ curl -fsSL https://raw.githubusercontent.com/supermarin/Alcatraz/deploy/Scripts/
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Install Powerline Patched Fonts:
-git clone https://github.com/powerline/fonts.git /tmp/fonts && /tmp/fonts/setup.sh
+rm -rf /tmp/fonts
+git clone https://github.com/powerline/fonts.git /tmp/fonts && /tmp/fonts/install.sh
